@@ -7,16 +7,18 @@ class player:
     def __init__(self,height):
         self.height = height
         self.monvingspeed = 0
+        self.dead = 0
+        self.speed = 8
         self.dino = pygame.Rect(50, 100, 50, 50)
 
     def jump(self):
-        if self.dino.y >= self.height - 62:
+        if self.dino.y >= self.height - 62 and self.dead ==0:
             self.dino.y -= 5
-            self.monvingspeed = -5
+            self.monvingspeed = -10
 
     def move(self):
         self.dino.y += int(self.monvingspeed)
-        self.monvingspeed += 0.1
+        self.monvingspeed += 0.4
         if self.dino.y >= self.height - 12 - self.dino.height:
             self.monvingspeed = 0
 

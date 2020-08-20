@@ -5,10 +5,11 @@ class map:
     def __init__(self,height,width):
         self.width = width
         self.height = height
+        x = randint(420, 450)
+        self.cactus = pygame.Rect(self.width,x,60, 200)
 
-    def spawncac(self):
-        x = randint(320, 400)
-        pygame.Rect(self.width,x,self.width + 30, self.height+10)
+    def draw(self,screen):
+        pygame.draw.rect(screen,(0,100,0),self.cactus)
 
-    def draw(self):
-        pygame.draw.rect()
+    def move(self,speed):
+        self.cactus.x -= speed
