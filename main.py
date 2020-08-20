@@ -22,10 +22,12 @@ class main:
         for event in self.event:
             if event.type == pygame.QUIT:
                 sys.exit()
-            if event.type == pygame.K_SPACE and self.dino.dead == 1:
-                self.dino.speed = 10
-                self.dino.dead = 0
-                self.cactuslist = []
+            if self.dino.dead == 1:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        self.dino.speed = 6
+                        self.dino.dead = 0
+                        self.cactuslist = []
 
     def handlecollition(self):
         for cactus in self.cactuslist:
@@ -35,7 +37,7 @@ class main:
 
     def spawncac(self):
         if self.dino.dead == 0:
-            self.SpawnTime += 10
+            self.SpawnTime += 8
             if self.SpawnTime >= self.width:
                 cactus = map.map (self.height, self.width)
                 self.cactuslist.append(cactus)
