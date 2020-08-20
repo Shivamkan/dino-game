@@ -2,12 +2,13 @@ import dino
 import pygame
 import sys
 
+clock = pygame.time.Clock()
 
 class main:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.dino = dino.player()
+        self.dino = dino.player(height)
         self.size = self.width, self.height
         self.screen = pygame.display.set_mode(self.size)
 
@@ -25,9 +26,11 @@ class main:
 
     def run(self):
         self.handleInput()
+        self.dino.move()
         self.draw()
 
 
 run = main(500, 500)
 while True:
+    clock.tick(60)
     run.run()
