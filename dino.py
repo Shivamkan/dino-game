@@ -1,5 +1,6 @@
 import pygame
 from util import *
+import map
 
 
 class player:
@@ -9,13 +10,15 @@ class player:
         self.dino = pygame.Rect(50, 100, 50, 50)
 
     def jump(self):
-        if self.dino.y >= self.height - 100:
+        if self.dino.y >= self.height - 62:
             self.dino.y -= 5
             self.monvingspeed = -5
 
     def move(self):
         self.dino.y += int(self.monvingspeed)
         self.monvingspeed += 0.1
+        if self.dino.y >= self.height - 12 - self.dino.height:
+            self.monvingspeed = 0
 
     def handleInput(self, input):
         for event in input:
