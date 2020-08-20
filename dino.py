@@ -19,4 +19,4 @@ class player:
                     self.jump()
 
     def drawplayer(self,screen):
-        pygame.draw.rect(screen,(RGB("#424242"),self.dino))
+        pygame.draw.rect(screen,(RGB("#424242")),self.dino)

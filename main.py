@@ -21,6 +21,7 @@ class main:
     def draw(self):
         self.screen.fill((000, 000, 000))
         self.dino.drawplayer(self.screen)
+        pygame.display.flip()
 
     def run(self):
         self.handleInput()
@@ -28,4 +29,5 @@ class main:
 
 
 run = main(500, 500)
-run.run()
+while True:
+    run.run()
